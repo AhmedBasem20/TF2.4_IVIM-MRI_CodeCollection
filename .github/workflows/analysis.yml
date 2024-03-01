@@ -146,6 +146,15 @@ jobs:
               durations.pdf
               curve_plot.pdf
               fitted_curves.pdf
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: Figures
+      - name: Upload HTML Page
+        uses: actions/upload-artifact@v3
+        with:
+          name: Pages
+          path: index.html
 
   compare:
     runs-on: ubuntu-latest
