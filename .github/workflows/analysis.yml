@@ -150,13 +150,11 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: Figures
-      - name: Upload HTML Page
-        run: ls
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
           branch: gh-pages
-          folder: Figures
+          folder: .
 
   compare:
     runs-on: ubuntu-latest
