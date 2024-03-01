@@ -151,10 +151,12 @@ jobs:
         with:
           name: Figures
       - name: Upload HTML Page
-        uses: actions/upload-artifact@v3
+        run: cp index.html Figures/
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
-          name: Pages
-          path: index.html
+          branch: gh-pages
+          folder: Figures
 
   compare:
     runs-on: ubuntu-latest
