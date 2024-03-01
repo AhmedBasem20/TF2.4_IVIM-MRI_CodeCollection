@@ -151,7 +151,7 @@ jobs:
         with:
           name: Figures
       - name: Upload HTML Page
-        run: cp index.html Figures/
+        run: ls
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:

@@ -2,7 +2,6 @@
     "algorithms": [
         "ETP_SRI_LinearFitting",
         "IAR_LU_biexp",
-        "IAR_LU_modified_mix",
         "IAR_LU_modified_topopro",
         "IAR_LU_segmented_2step",
         "IAR_LU_segmented_3step",
@@ -14,20 +13,6 @@
         "PvH_KB_NKI_IVIMfit"
     ],
     "IAR_LU_biexp": {
-        "tolerances": {
-            "rtol": {
-                "f": 5,
-                "D": 5,
-                "Dp": 25
-            },
-            "atol": {
-                "f": 1e-2,
-                "D": 1e-2,
-                "Dp": 1e-1
-            }
-        }
-    },
-    "IAR_LU_modified_mix": {
         "tolerances": {
             "rtol": {
                 "f": 5,
