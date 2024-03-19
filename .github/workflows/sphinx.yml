@@ -5,8 +5,7 @@ on:
     workflows: ["Algorithm Analysis"]
     types:
       - completed
-    branches:
-      - 'test-docs'
+
 permissions:
   contents: read
   pages: write
