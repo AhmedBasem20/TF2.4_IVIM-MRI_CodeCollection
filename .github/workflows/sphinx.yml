@@ -1,14 +1,11 @@
 name: Build Documentation
 
 on:
-  push:
-    branches:
-      - 'main'
-      - 'test-docs'
   workflow_run:
     workflows: [Algorithm Analysis]
     types:
       - completed
+    branches: [main]
 permissions:
   contents: read
   pages: write
