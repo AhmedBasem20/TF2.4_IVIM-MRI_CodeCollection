@@ -2,10 +2,11 @@ name: Build Documentation
 
 on:
   workflow_run:
-    workflows: [Algorithm Analysis]
+    workflows: ["Algorithm Analysis"]
     types:
       - completed
-    branches: [test-docs]
+    branches:
+      - 'test-docs'
 permissions:
   contents: read
   pages: write
