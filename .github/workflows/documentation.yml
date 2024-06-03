@@ -60,7 +60,9 @@ jobs:
 
       - name: move data to the website folder
         run: |
+          ls website
           mv docs/_build/html website/documentation
+          ls website
 
       - name: Upload docs artifact
         uses: actions/upload-pages-artifact@v3
