@@ -5,6 +5,7 @@ on:
     branches:
       - 'main'
       - 'analysis/**'
+      - 'dd'
 
 jobs:
   algorithms:
