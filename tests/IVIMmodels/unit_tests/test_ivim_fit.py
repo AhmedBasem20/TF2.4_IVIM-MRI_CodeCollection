@@ -153,14 +153,15 @@ def data_ivim_fit_saved():
         for algorithm in algorithms:
             algorithm_dict = algorithm_information.get(algorithm, {})
             xfail = {"xfail": name in algorithm_dict.get("xfail_names", {}),
-                "strict": algorithm_dict.get("xfail_names", {}).get(name, True)}
+                     "strict": algorithm_dict.get("xfail_names", {}).get(name, True)}
             kwargs = algorithm_dict.get("options", {})
             tolerances = algorithm_dict.get("tolerances", {})
             yield name, bvals, data, algorithm, xfail, kwargs, tolerances
 
-
 @pytest.mark.parametrize("name, bvals, data, algorithm, xfail, kwargs, tolerances", data_ivim_fit_saved())
 def test_ivim_fit_saved(name, bvals, data, algorithm, xfail, kwargs, tolerances, request):
+    results = []
+
     if xfail["xfail"]:
         mark = pytest.mark.xfail(reason="xfail", strict=xfail["strict"])
         request.node.add_marker(mark)
@@ -172,3 +173,18 @@ def test_ivim_fit_saved(name, bvals, data, algorithm, xfail, kwargs, tolerances,
     npt.assert_allclose(data['D'], D_fit, rtol=tolerances["rtol"]["D"], atol=tolerances["atol"]["D"])
     npt.assert_allclose(data['Dp'], Dp_fit, rtol=tolerances["rtol"]["Dp"], atol=tolerances["atol"]["Dp"])
 
+    # Save results to a list
+    results.append({
+        'name': name,
+        'algorithm': algorithm,
+        'f_fit': f_fit.tolist(),
+        'D_fit': D_fit.tolist(),
+        'Dp_fit': Dp_fit.tolist()
+    })
+
+    print(results)
+
+    # Write results to a file
+    results_file = pathlib.Path(__file__).with_name('ivim_fit_results.json')
+    with results_file.open('w') as f:
+        json.dump(results, f, indent=4)
