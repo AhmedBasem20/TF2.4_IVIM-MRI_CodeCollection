@@ -1,7 +1,18 @@
 {
     "algorithms": [
         "ETP_SRI_LinearFitting",
-        "IAR_LU_biexp"
+        "IAR_LU_biexp",
+        "IAR_LU_modified_mix",
+        "IAR_LU_modified_topopro",
+        "IAR_LU_segmented_2step",
+        "IAR_LU_segmented_3step",
+        "IAR_LU_subtracted",
+        "OGC_AmsterdamUMC_Bayesian_biexp",
+        "OGC_AmsterdamUMC_biexp_segmented",
+        "OGC_AmsterdamUMC_biexp",
+        "PV_MUMC_biexp",
+        "PvH_KB_NKI_IVIMfit",
+        "OJ_GU_seg"
     ],
     "IAR_LU_biexp": {
         "tolerances": {
