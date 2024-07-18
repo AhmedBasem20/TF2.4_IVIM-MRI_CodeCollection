@@ -45,10 +45,12 @@ jobs:
         uses: ./.github/actions/download-artifact
         with:
           name: 'Data'
-
+      
+      - name: 'Filter and compress results file.'
+        run: python tests/IVIMmodels/unit_tests/reduce_output_size.py
       - name: move data to the website folder
         run: |
-          mv test_output.csv dashboard_website/
+          mv test_output.csv.gz dashboard_website/
 
       - name: Build documentation
         run: |
